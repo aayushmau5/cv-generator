@@ -1,0 +1,23 @@
+.CV {
+    width: 100%;
+    height: 90vh;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.Container {
+    border: 1px solid rgb(83, 83, 83);
+    margin: auto;
+    max-width: 70%;
+    display: flex;
+}
+
+.Left_side {
+    background-color: #ccc;
+    padding: 1rem;
+}
+
+.Right_side {
+    border-left:1px solid black;
+    padding: 1rem;
+}
