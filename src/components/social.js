@@ -1,3 +1,5 @@
+import { FaPencilAlt } from "react-icons/fa";
+
 const Social = (props) => {
   const socialArray = props.value;
   const output = socialArray.map((obj) => (
@@ -9,7 +11,7 @@ const Social = (props) => {
   return (
     <>
       <div>
-        <h3>Socials</h3>
+        <h3>Socials {props.edit ? <FaPencilAlt size="15px" /> : null}</h3>
         {output}
       </div>
     </>

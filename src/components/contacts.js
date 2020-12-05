@@ -1,13 +1,19 @@
-const Contacts = props => {
-    const contactsArray = props.value;
-    const output = contactsArray.map(obj => <div key={obj.id}>{obj.website}:{obj.username}</div>)
+import { FaPencilAlt } from "react-icons/fa";
 
-    return (
-        <>
-            <h3>Contacts</h3>
-            {output}
-        </>
-    )
-}
+const Contacts = (props) => {
+  const contactsArray = props.value;
+  const output = contactsArray.map((obj) => (
+    <div key={obj.id}>
+      {obj.website}:{obj.username}
+    </div>
+  ));
+
+  return (
+    <>
+      <h3>Contacts {props.edit ? <FaPencilAlt size="15px" /> : null}</h3>
+      {output}
+    </>
+  );
+};
 
 export default Contacts;

@@ -5,6 +5,12 @@
     box-sizing: border-box;
 }
 
+.Buttons {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .Container {
     border: 1px solid rgb(83, 83, 83);
     margin: auto;

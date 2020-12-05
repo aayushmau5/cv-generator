@@ -1,4 +1,6 @@
 .Header {
+    width: 100%;
+    box-sizing: border-box;
     background-color: black;
     color:white;
     text-align: center;

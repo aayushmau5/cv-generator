@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { Button } from "@material-ui/core";
+
 import Contacts from "../components/contacts";
 import Interests from "../components/interests";
 import Name from "../components/name";
@@ -16,25 +18,25 @@ class CV extends Component {
     contacts: [
       {
         id: 0,
-        website: 'LinkedIn',
-        username: 'Your LinkedIn'
+        website: "LinkedIn",
+        username: "Your LinkedIn",
       },
       {
         id: 1,
-        website: 'Devpost',
-        username: 'Your Devpost'
+        website: "Devpost",
+        username: "Your Devpost",
       },
     ],
     social: [
       {
         id: 0,
-        website: 'Instagram',
-        username: 'Your Instagram'
+        website: "Instagram",
+        username: "Your Instagram",
       },
       {
         id: 1,
-        website: 'Facebook',
-        username: 'Your Facebook'
+        website: "Facebook",
+        username: "Your Facebook",
       },
     ],
     interests: ["Your Interest"],
@@ -42,26 +44,54 @@ class CV extends Component {
     skills: ["Your Skills"],
     achievements: ["Your Achievements"],
     education: ["Your Education"],
+    edit: true,
+  };
+
+  editChangeHandler = () => {
+    this.setState({
+      edit: !this.state.edit,
+    });
   };
 
   render() {
     return (
-      <div className={styles.CV}>
-        <div className={styles.Container}>
-          <div className={styles.Left_side}>
-            <Name value={this.state.name} />
-            <Contacts value={this.state.contacts} />
-            <Social value={this.state.social} />
-            <Interests value={this.state.interests} />
-          </div>
-          <div className={styles.Right_side}>
-            <About value={this.state.about} />
-            <Skills value={this.state.skills} />
-            <Achievements value={this.state.achievements} />
-            <Education value={this.state.education} />
+      <>
+        <div className={styles.CV}>
+          <div className={styles.Container}>
+            <div className={styles.Left_side}>
+              <Name value={this.state.name} edit={this.state.edit} />
+              <Contacts value={this.state.contacts} edit={this.state.edit} />
+              <Social value={this.state.social} edit={this.state.edit} />
+              <Interests value={this.state.interests} edit={this.state.edit} />
+            </div>
+            <div className={styles.Right_side}>
+              <About value={this.state.about} edit={this.state.edit} />
+              <Skills value={this.state.skills} edit={this.state.edit} />
+              <Achievements
+                value={this.state.achievements}
+                edit={this.state.edit}
+              />
+              <Education value={this.state.education} edit={this.state.edit} />
+            </div>
           </div>
         </div>
-      </div>
+        <div className={styles.Buttons}>
+          {this.state.edit ? (
+            <>
+              <Button style={{marginRight: '10px'}} variant="contained" onClick={this.editChangeHandler}>
+                Discard
+              </Button>
+              <Button variant="contained" onClick={this.editChangeHandler}>
+                Save
+              </Button>
+            </>
+          ) : (
+            <Button variant="contained" onClick={this.editChangeHandler}>
+              Edit
+            </Button>
+          )}
+        </div>
+      </>
     );
   }
 }

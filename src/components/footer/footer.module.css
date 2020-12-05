@@ -1,16 +1,18 @@
 .Footer {
+    width: 100%;
     background-color: black;
     color:white;
     text-align: center;
     padding: 1rem;
+    box-sizing: border-box;
 }
 
 .Footer a {
     text-decoration: none;
     font-family: inherit;
-    color: white;
+    color: black;
 }
 
 .Footer a:hover {
-    color: #eee;
+    color: gray;
 }
