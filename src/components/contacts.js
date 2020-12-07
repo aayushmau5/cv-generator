@@ -1,6 +1,15 @@
+import { useState } from "react";
+
 import { FaPencilAlt } from "react-icons/fa";
+import Modal from "./modal/modal";
 
 const Contacts = (props) => {
+  const [show, setShow] = useState(false);
+
+  const toggleModal = () => {
+    setShow(!show);
+  };
+
   const contactsArray = props.value;
   const output = contactsArray.map((obj) => (
     <div key={obj.id}>
@@ -10,7 +19,11 @@ const Contacts = (props) => {
 
   return (
     <>
-      <h3>Contacts {props.edit ? <FaPencilAlt size="15px" /> : null}</h3>
+      <Modal show={show} handleClose={toggleModal} />
+      <h3>
+        Contacts{" "}
+        {props.edit ? <FaPencilAlt size="15px" onClick={toggleModal} /> : null}
+      </h3>
       {output}
     </>
   );
