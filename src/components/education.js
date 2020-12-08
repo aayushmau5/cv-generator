@@ -13,7 +13,7 @@ const Education = (props) => {
   return (
     <>
       <div>
-        <Modal show={show} handleClose={toggleModal} />
+        <Modal show={show} handleClose={toggleModal} title="Education" />
         <h1>
           Education{" "}
           {props.edit ? (

@@ -12,7 +12,7 @@ const Interests = (props) => {
   return (
     <>
       <div>
-        <Modal show={show} handleClose={toggleModal} />
+        <Modal show={show} handleClose={toggleModal} title="Interests" />
         <h3>
           Interests{" "}
           {props.edit ? (

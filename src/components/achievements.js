@@ -13,7 +13,7 @@ const Achievements = (props) => {
   return (
     <>
       <div>
-        <Modal show={show} handleClose={toggleModal} />
+        <Modal show={show} handleClose={toggleModal} title="Achievements" />
         <h1>
           Achievements{" "}
           {props.edit ? (

@@ -20,7 +20,7 @@ const Social = (props) => {
   return (
     <>
       <div>
-        <Modal show={show} handleClose={toggleModal} />
+        <Modal show={show} handleClose={toggleModal} title="Socials" />
         <h3>
           Socials{" "}
           {props.edit ? (
