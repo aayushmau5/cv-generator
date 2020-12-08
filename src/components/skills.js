@@ -13,10 +13,15 @@ const Skills = (props) => {
   return (
     <>
       <div>
-        <Modal show={show} handleClose={toggleModal} title="Skills" />
+        <Modal
+          show={show}
+          handleClose={toggleModal}
+          title="Skills"
+          editState={props.editState}
+        />
         <h1>
           Skills{" "}
-          {props.edit ? (
+          {props.showEditor ? (
             <FaPencilAlt size="20px" onClick={toggleModal} />
           ) : null}
         </h1>

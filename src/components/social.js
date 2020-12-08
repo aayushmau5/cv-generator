@@ -20,10 +20,15 @@ const Social = (props) => {
   return (
     <>
       <div>
-        <Modal show={show} handleClose={toggleModal} title="Socials" />
+        <Modal
+          show={show}
+          handleClose={toggleModal}
+          title="Socials"
+          editState={props.editState}
+        />
         <h3>
           Socials{" "}
-          {props.edit ? (
+          {props.showEditor ? (
             <FaPencilAlt size="15px" onClick={toggleModal} />
           ) : null}
         </h3>

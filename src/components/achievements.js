@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { FaPencilAlt } from "react-icons/fa";
-import Modal from './modal/modal';
+import Modal from "./modal/modal";
 
 const Achievements = (props) => {
   const [show, setShow] = useState(false);
@@ -13,10 +13,15 @@ const Achievements = (props) => {
   return (
     <>
       <div>
-        <Modal show={show} handleClose={toggleModal} title="Achievements" />
+        <Modal
+          show={show}
+          handleClose={toggleModal}
+          title="Achievements"
+          editState={props.editState}
+        />
         <h1>
           Achievements{" "}
-          {props.edit ? (
+          {props.showEditor ? (
             <FaPencilAlt size="20px" onClick={toggleModal} />
           ) : null}
         </h1>

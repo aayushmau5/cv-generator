@@ -19,10 +19,17 @@ const Contacts = (props) => {
 
   return (
     <>
-      <Modal show={show} handleClose={toggleModal} title="Contacts" />
+      <Modal
+        show={show}
+        handleClose={toggleModal}
+        title="Contacts"
+        editState={props.editState}
+      />
       <h3>
         Contacts{" "}
-        {props.edit ? <FaPencilAlt size="15px" onClick={toggleModal} /> : null}
+        {props.showEditor ? (
+          <FaPencilAlt size="15px" onClick={toggleModal} />
+        ) : null}
       </h3>
       {output}
     </>

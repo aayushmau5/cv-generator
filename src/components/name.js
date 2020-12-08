@@ -12,10 +12,17 @@ const Name = (props) => {
 
   return (
     <>
-      <Modal show={show} handleClose={toggleModal} title="Name" editState={props.editState} value={props.value} />
+      <Modal
+        show={show}
+        handleClose={toggleModal}
+        title="Name"
+        editState={props.editState}
+      />
       <h1 style={{ textDecoration: "none" }}>
         {props.value}{" "}
-        {props.showEditor ? <FaPencilAlt size="20px" onClick={toggleModal} /> : null}
+        {props.showEditor ? (
+          <FaPencilAlt size="20px" onClick={toggleModal} />
+        ) : null}
       </h1>
     </>
   );

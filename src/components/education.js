@@ -13,10 +13,15 @@ const Education = (props) => {
   return (
     <>
       <div>
-        <Modal show={show} handleClose={toggleModal} title="Education" />
+        <Modal
+          show={show}
+          handleClose={toggleModal}
+          title="Education"
+          editState={props.editState}
+        />
         <h1>
           Education{" "}
-          {props.edit ? (
+          {props.showEditor ? (
             <FaPencilAlt size="20px" onClick={toggleModal} />
           ) : null}
         </h1>

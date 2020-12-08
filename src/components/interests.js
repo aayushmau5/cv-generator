@@ -12,10 +12,15 @@ const Interests = (props) => {
   return (
     <>
       <div>
-        <Modal show={show} handleClose={toggleModal} title="Interests" />
+        <Modal
+          show={show}
+          handleClose={toggleModal}
+          title="Interests"
+          editState={props.editState}
+        />
         <h3>
           Interests{" "}
-          {props.edit ? (
+          {props.showEditor ? (
             <FaPencilAlt size="15px" onClick={toggleModal} />
           ) : null}
         </h3>

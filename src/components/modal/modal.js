@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from "react";
 
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 
 const Modal = (props) => {
   let textfield;
-  const [state, setState] = useState('');
+  const [state, setState] = useState("");
 
   switch (props.title.toLowerCase()) {
     case "name":
@@ -33,6 +33,7 @@ const Modal = (props) => {
           id="about"
           label="About"
           type="text"
+          onChange={(e) => setState(e.target.value)}
           fullWidth
           multiline
         />
@@ -47,6 +48,7 @@ const Modal = (props) => {
             id="achievements"
             label="Achievemets"
             type="text"
+            onChange={(e) => setState(e.target.value)}
             fullWidth
             multiline
           />
@@ -61,6 +63,7 @@ const Modal = (props) => {
             margin="dense"
             id="website"
             label="Website"
+            onChange={(e) => setState({ ...state, website: e.target.value })}
             type="text"
             fullWidth
           />
@@ -69,6 +72,7 @@ const Modal = (props) => {
             id="username"
             label="Username"
             type="text"
+            onChange={(e) => setState({ ...state, username: e.target.value })}
             fullWidth
           />
         </>
@@ -82,6 +86,7 @@ const Modal = (props) => {
             margin="dense"
             id="website"
             label="Website"
+            onChange={(e) => setState({ ...state, website: e.target.value })}
             type="text"
             fullWidth
           />
@@ -89,6 +94,7 @@ const Modal = (props) => {
             margin="dense"
             id="username"
             label="Username"
+            onChange={(e) => setState({ ...state, username: e.target.value })}
             type="text"
             fullWidth
           />
@@ -102,6 +108,7 @@ const Modal = (props) => {
           margin="dense"
           id="interests"
           label="Interest"
+          onChange={(e) => setState(e.target.value)}
           type="text"
           fullWidth
         />
@@ -114,6 +121,7 @@ const Modal = (props) => {
           margin="dense"
           id="skills"
           label="Skills"
+          onChange={(e) => setState(e.target.value)}
           type="text"
           fullWidth
         />
@@ -126,6 +134,7 @@ const Modal = (props) => {
           margin="dense"
           id="education"
           label="Education"
+          onChange={(e) => setState(e.target.value)}
           type="text"
           fullWidth
         />
@@ -156,7 +165,14 @@ const Modal = (props) => {
       <DialogContent>{textfield}</DialogContent>
       <DialogActions>
         <Button onClick={props.handleClose}>Cancel</Button>
-        <Button onClick={() => {props.editState(state); props.handleClose()}}>Add</Button>
+        <Button
+          onClick={() => {
+            props.editState(state);
+            props.handleClose();
+          }}
+        >
+          Add
+        </Button>
       </DialogActions>
     </Dialog>
   );

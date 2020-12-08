@@ -59,27 +59,59 @@ class CV extends Component {
     });
   };
 
+  aboutChangeHandler = (value) => {
+    this.setState({
+      about: value,
+    });
+  };
+
   contactsChangeHandler = (value) => {
     this.setState({
-      contacts: this.state.contacts.push[
+      contacts: [
+        ...this.state.contacts,
         {
           id: "hello",
           website: value.website,
           username: value.username,
-        }
+        },
       ],
     });
   };
 
   socialChangeHandler = (value) => {
     this.setState({
-      social: this.state.social.push[
+      social: [
+        ...this.state.social,
         {
           id: "hello",
           website: value.website,
           username: value.username,
-        }
+        },
       ],
+    });
+  };
+
+  interestsChangeHandler = (value) => {
+    this.setState({
+      interests: [...this.state.interests, value],
+    });
+  };
+
+  skillsChangeHandler = (value) => {
+    this.setState({
+      skills: [...this.state.skills, value],
+    });
+  };
+
+  achievementsChangeHandler = (value) => {
+    this.setState({
+      achievements: [...this.state.achievements, value],
+    });
+  };
+
+  educationChangeHandler = (value) => {
+    this.setState({
+      education: [...this.state.education, value],
     });
   };
 
@@ -94,18 +126,43 @@ class CV extends Component {
                 showEditor={this.state.edit}
                 editState={this.nameChangeHandler}
               />
-              <Contacts value={this.state.contacts} edit={this.state.edit} />
-              <Social value={this.state.social} edit={this.state.edit} />
-              <Interests value={this.state.interests} edit={this.state.edit} />
+              <Contacts
+                value={this.state.contacts}
+                showEditor={this.state.edit}
+                editState={this.contactsChangeHandler}
+              />
+              <Social
+                value={this.state.social}
+                showEditor={this.state.edit}
+                editState={this.socialChangeHandler}
+              />
+              <Interests
+                value={this.state.interests}
+                showEditor={this.state.edit}
+                editState={this.interestsChangeHandler}
+              />
             </div>
             <div className={styles.Right_side}>
-              <About value={this.state.about} edit={this.state.edit} />
-              <Skills value={this.state.skills} edit={this.state.edit} />
+              <About
+                value={this.state.about}
+                showEditor={this.state.edit}
+                editState={this.aboutChangeHandler}
+              />
+              <Skills
+                value={this.state.skills}
+                showEditor={this.state.edit}
+                editState={this.skillsChangeHandler}
+              />
               <Achievements
                 value={this.state.achievements}
-                edit={this.state.edit}
+                showEditor={this.state.edit}
+                editState={this.achievementsChangeHandler}
               />
-              <Education value={this.state.education} edit={this.state.edit} />
+              <Education
+                value={this.state.education}
+                showEditor={this.state.edit}
+                editState={this.educationChangeHandler}
+              />
             </div>
           </div>
         </div>
