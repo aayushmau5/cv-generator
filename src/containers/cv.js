@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Button } from "@material-ui/core";
+import { nanoid } from "nanoid";
 
 import Contacts from "../components/contacts";
 import Interests from "../components/interests";
@@ -70,7 +71,7 @@ class CV extends Component {
       contacts: [
         ...this.state.contacts,
         {
-          id: "hello",
+          id: nanoid(10),
           website: value.website,
           username: value.username,
         },
@@ -83,7 +84,7 @@ class CV extends Component {
       social: [
         ...this.state.social,
         {
-          id: "hello",
+          id: nanoid(10),
           website: value.website,
           username: value.username,
         },
