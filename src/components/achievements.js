@@ -1,10 +1,34 @@
 import { useState } from "react";
 
-import { FaPencilAlt } from "react-icons/fa";
+import { FaPlus, FaTrash } from "react-icons/fa";
 import Modal from "./modal/modal";
 
 const Achievements = (props) => {
   const [show, setShow] = useState(false);
+
+  const achievementsArray = props.value.map((obj) => {
+    return (
+      <div key={obj.id}>
+        {props.showEditor ? (
+          <FaTrash
+            style={{ marginLeft: "5px", cursor: "pointer" }}
+            size="13px"
+            onClick={() => props.deleteState("achievements", obj.id)}
+          />
+        ) : null}
+        <br />
+        Year: {obj.year}
+        <br />
+        Company: {obj.company}
+        <br />
+        Position: {obj.position}
+        <br />
+        Summary: {obj.summary}
+        <br />
+        <br />
+      </div>
+    );
+  });
 
   const toggleModal = () => {
     setShow(!show);
@@ -22,10 +46,14 @@ const Achievements = (props) => {
         <h1>
           Achievements{" "}
           {props.showEditor ? (
-            <FaPencilAlt size="20px" onClick={toggleModal} />
+            <FaPlus
+              style={{ cursor: "pointer" }}
+              size="20px"
+              onClick={toggleModal}
+            />
           ) : null}
         </h1>
-        {props.value}
+        {achievementsArray}
       </div>
     </>
   );

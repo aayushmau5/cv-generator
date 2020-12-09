@@ -19,13 +19,18 @@ class CV extends Component {
     contacts: [
       {
         id: 0,
-        website: "LinkedIn",
-        username: "Your LinkedIn",
+        place: "LinkedIn",
+        value: "Your LinkedIn",
       },
       {
         id: 1,
-        website: "Devpost",
-        username: "Your Devpost",
+        place: "email",
+        value: "Your email",
+      },
+      {
+        id: 2,
+        place: "Phone",
+        value: "Your Phone",
       },
     ],
     social: [
@@ -40,11 +45,57 @@ class CV extends Component {
         username: "Your Facebook",
       },
     ],
-    interests: ["Your Interest"],
+    interests: [
+      {
+        id: 0,
+        interest: "First Interest",
+      },
+      {
+        id: 1,
+        interest: "Second Interest",
+      },
+    ],
     about: "Your about",
-    skills: ["Your Skills"],
-    achievements: ["Your Achievements"],
-    education: ["Your Education"],
+    skills: [
+      {
+        id: 0,
+        skill: "Javascript",
+      },
+      {
+        id: 1,
+        skill: "Nodejs",
+      },
+    ],
+    achievements: [
+      {
+        id: 0,
+        year: "2020-2023",
+        company: "Company",
+        position: "Position 1",
+        summary: "Did this and that in my job there",
+      },
+      {
+        id: 1,
+        year: "2021-2024",
+        company: "Company 2",
+        position: "Position 3",
+        summary: "Did this and that in my job there",
+      },
+    ],
+    education: [
+      {
+        id: 0,
+        year: "2015-2016",
+        place: "School",
+        title: "Did study there",
+      },
+      {
+        id: 1,
+        year: "2015-2016",
+        place: "College",
+        title: "Bachelor of engineering",
+      },
+    ],
     edit: false,
   };
 
@@ -72,8 +123,8 @@ class CV extends Component {
         ...this.state.contacts,
         {
           id: nanoid(10),
-          website: value.website,
-          username: value.username,
+          place: value.place,
+          value: value.value,
         },
       ],
     });
@@ -94,25 +145,61 @@ class CV extends Component {
 
   interestsChangeHandler = (value) => {
     this.setState({
-      interests: [...this.state.interests, value],
+      interests: [
+        ...this.state.interests,
+        {
+          id: nanoid(10),
+          interest: value.interest,
+        },
+      ],
     });
   };
 
   skillsChangeHandler = (value) => {
     this.setState({
-      skills: [...this.state.skills, value],
+      skills: [
+        ...this.state.skills,
+        {
+          id: nanoid(10),
+          skill: value.skill,
+        },
+      ],
     });
   };
 
   achievementsChangeHandler = (value) => {
     this.setState({
-      achievements: [...this.state.achievements, value],
+      achievements: [
+        ...this.state.achievements,
+        {
+          id: nanoid(10),
+          year: `${value.yearStarted} - ${value.yearEnded}`,
+          company: value.company,
+          position: value.position,
+          summary: value.summary,
+        },
+      ],
     });
   };
 
   educationChangeHandler = (value) => {
     this.setState({
-      education: [...this.state.education, value],
+      education: [
+        ...this.state.education,
+        {
+          id: nanoid(10),
+          year: `${value.yearStarted} - ${value.yearEnded}`,
+          place: value.place,
+          title: value.title,
+        },
+      ],
+    });
+  };
+
+  deleteStateHandler = (state, id) => {
+    const newState = this.state[state].filter((obj) => obj.id !== id);
+    this.setState({
+      [state]: newState,
     });
   };
 
@@ -131,16 +218,19 @@ class CV extends Component {
                 value={this.state.contacts}
                 showEditor={this.state.edit}
                 editState={this.contactsChangeHandler}
+                deleteState={this.deleteStateHandler}
               />
               <Social
                 value={this.state.social}
                 showEditor={this.state.edit}
                 editState={this.socialChangeHandler}
+                deleteState={this.deleteStateHandler}
               />
               <Interests
                 value={this.state.interests}
                 showEditor={this.state.edit}
                 editState={this.interestsChangeHandler}
+                deleteState={this.deleteStateHandler}
               />
             </div>
             <div className={styles.Right_side}>
@@ -153,16 +243,19 @@ class CV extends Component {
                 value={this.state.skills}
                 showEditor={this.state.edit}
                 editState={this.skillsChangeHandler}
+                deleteState={this.deleteStateHandler}
               />
               <Achievements
                 value={this.state.achievements}
                 showEditor={this.state.edit}
                 editState={this.achievementsChangeHandler}
+                deleteState={this.deleteStateHandler}
               />
               <Education
                 value={this.state.education}
                 showEditor={this.state.edit}
                 editState={this.educationChangeHandler}
+                deleteState={this.deleteStateHandler}
               />
             </div>
           </div>

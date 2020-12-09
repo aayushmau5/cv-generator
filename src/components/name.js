@@ -21,7 +21,11 @@ const Name = (props) => {
       <h1 style={{ textDecoration: "none" }}>
         {props.value}{" "}
         {props.showEditor ? (
-          <FaPencilAlt size="20px" onClick={toggleModal} />
+          <FaPencilAlt
+            style={{ cursor: "pointer" }}
+            size="20px"
+            onClick={toggleModal}
+          />
         ) : null}
       </h1>
     </>

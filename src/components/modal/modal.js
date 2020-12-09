@@ -45,10 +45,44 @@ const Modal = (props) => {
           <TextField
             autoFocus
             margin="dense"
-            id="achievements"
-            label="Achievemets"
+            id="started"
+            label="Year Started"
+            type="number"
+            onChange={(e) => {
+              setState({ ...state, yearStarted: e.target.value });
+            }}
+            fullWidth
+          />
+          <TextField
+            margin="dense"
+            id="ended"
+            label="Till"
+            type="number"
+            onChange={(e) => setState({ ...state, yearEnded: e.target.value })}
+            fullWidth
+          />
+          <TextField
+            margin="dense"
+            id="company"
+            label="Company"
             type="text"
-            onChange={(e) => setState(e.target.value)}
+            onChange={(e) => setState({ ...state, company: e.target.value })}
+            fullWidth
+          />
+          <TextField
+            margin="dense"
+            id="postion"
+            label="Position"
+            type="text"
+            onChange={(e) => setState({ ...state, position: e.target.value })}
+            fullWidth
+          />
+          <TextField
+            margin="dense"
+            id="summary"
+            label="Summary"
+            type="text"
+            onChange={(e) => setState({ ...state, summary: e.target.value })}
             fullWidth
             multiline
           />
@@ -61,18 +95,18 @@ const Modal = (props) => {
           <TextField
             autoFocus
             margin="dense"
-            id="website"
-            label="Website"
-            onChange={(e) => setState({ ...state, website: e.target.value })}
+            id="place"
+            label="Contact Place"
+            onChange={(e) => setState({ ...state, place: e.target.value })}
             type="text"
             fullWidth
           />
           <TextField
             margin="dense"
-            id="username"
-            label="Username"
+            id="value"
+            label="Value"
             type="text"
-            onChange={(e) => setState({ ...state, username: e.target.value })}
+            onChange={(e) => setState({ ...state, value: e.target.value })}
             fullWidth
           />
         </>
@@ -108,7 +142,7 @@ const Modal = (props) => {
           margin="dense"
           id="interests"
           label="Interest"
-          onChange={(e) => setState(e.target.value)}
+          onChange={(e) => setState({ interest: e.target.value })}
           type="text"
           fullWidth
         />
@@ -121,7 +155,7 @@ const Modal = (props) => {
           margin="dense"
           id="skills"
           label="Skills"
-          onChange={(e) => setState(e.target.value)}
+          onChange={(e) => setState({ skill: e.target.value })}
           type="text"
           fullWidth
         />
@@ -129,15 +163,43 @@ const Modal = (props) => {
       break;
     case "education":
       textfield = (
-        <TextField
-          autoFocus
-          margin="dense"
-          id="education"
-          label="Education"
-          onChange={(e) => setState(e.target.value)}
-          type="text"
-          fullWidth
-        />
+        <>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="started"
+            label="Year Started"
+            onChange={(e) =>
+              setState({ ...state, yearStarted: e.target.value })
+            }
+            type="number"
+            fullWidth
+          />
+          <TextField
+            margin="dense"
+            id="ended"
+            label="Till"
+            onChange={(e) => setState({ ...state, yearEnded: e.target.value })}
+            type="number"
+            fullWidth
+          />
+          <TextField
+            margin="dense"
+            id="place"
+            label="Place"
+            onChange={(e) => setState({ ...state, place: e.target.value })}
+            type="text"
+            fullWidth
+          />
+          <TextField
+            margin="dense"
+            id="title"
+            label="Title"
+            onChange={(e) => setState({ ...state, title: e.target.value })}
+            type="text"
+            fullWidth
+          />
+        </>
       );
       break;
 

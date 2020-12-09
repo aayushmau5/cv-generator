@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { FaPencilAlt } from "react-icons/fa";
+import { FaPlus, FaTrash } from "react-icons/fa";
 import Modal from "./modal/modal";
 
 const Contacts = (props) => {
@@ -13,7 +13,14 @@ const Contacts = (props) => {
   const contactsArray = props.value;
   const output = contactsArray.map((obj) => (
     <div key={obj.id}>
-      {obj.website}:{obj.username}
+      {obj.place}:{obj.value}{" "}
+      {props.showEditor ? (
+        <FaTrash
+          style={{ marginLeft: "5px", cursor: "pointer" }}
+          size="13px"
+          onClick={() => props.deleteState("contacts", obj.id)}
+        />
+      ) : null}
     </div>
   ));
 
@@ -28,7 +35,11 @@ const Contacts = (props) => {
       <h3>
         Contacts{" "}
         {props.showEditor ? (
-          <FaPencilAlt size="15px" onClick={toggleModal} />
+          <FaPlus
+            style={{ cursor: "pointer" }}
+            size="15px"
+            onClick={toggleModal}
+          />
         ) : null}
       </h3>
       {output}

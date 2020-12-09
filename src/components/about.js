@@ -22,7 +22,11 @@ const About = (props) => {
         <h1>
           About{" "}
           {props.showEditor ? (
-            <FaPencilAlt size="20px" onClick={toggleModal} />
+            <FaPencilAlt
+              style={{ cursor: "pointer" }}
+              size="20px"
+              onClick={toggleModal}
+            />
           ) : null}
         </h1>
         {props.value}

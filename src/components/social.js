@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { FaPencilAlt } from "react-icons/fa";
+import { FaPlus, FaTrash } from "react-icons/fa";
 import Modal from "./modal/modal";
 
 const Social = (props) => {
@@ -14,6 +14,13 @@ const Social = (props) => {
   const output = socialArray.map((obj) => (
     <div key={obj.id}>
       {obj.website}:{obj.username}
+      {props.showEditor ? (
+        <FaTrash
+          style={{ marginLeft: "5px", cursor: "pointer" }}
+          size="13px"
+          onClick={() => props.deleteState("social", obj.id)}
+        />
+      ) : null}
     </div>
   ));
 
@@ -29,7 +36,11 @@ const Social = (props) => {
         <h3>
           Socials{" "}
           {props.showEditor ? (
-            <FaPencilAlt size="15px" onClick={toggleModal} />
+            <FaPlus
+              style={{ cursor: "pointer" }}
+              size="15px"
+              onClick={toggleModal}
+            />
           ) : null}
         </h3>
         {output}
