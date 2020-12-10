@@ -259,26 +259,17 @@ class CV extends Component {
               />
             </div>
           </div>
-        </div>
-        <div className={styles.Buttons}>
-          {this.state.edit ? (
-            <>
-              <Button
-                style={{ marginRight: "10px" }}
-                variant="contained"
-                onClick={this.editChangeHandler}
-              >
-                Discard
-              </Button>
+          <div className={styles.Buttons}>
+            {this.state.edit ? (
               <Button variant="contained" onClick={this.editChangeHandler}>
                 Save
               </Button>
-            </>
-          ) : (
-            <Button variant="contained" onClick={this.editChangeHandler}>
-              Edit
-            </Button>
-          )}
+            ) : (
+              <Button variant="contained" onClick={this.editChangeHandler}>
+                Edit
+              </Button>
+            )}
+          </div>
         </div>
       </>
     );
