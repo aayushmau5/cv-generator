@@ -208,6 +208,17 @@ class CV extends Component {
     return (
       <>
         <div className={styles.CV}>
+          <div className={styles.Buttons}>
+            {this.state.edit ? (
+              <Button variant="contained" onClick={this.editChangeHandler}>
+                Save
+              </Button>
+            ) : (
+              <Button variant="contained" onClick={this.editChangeHandler}>
+                Edit
+              </Button>
+            )}
+          </div>
           <div className={styles.Container}>
             <div className={styles.Left_side}>
               <Name
@@ -259,17 +270,6 @@ class CV extends Component {
                 deleteState={this.deleteStateHandler}
               />
             </div>
-          </div>
-          <div className={styles.Buttons}>
-            {this.state.edit ? (
-              <Button variant="contained" onClick={this.editChangeHandler}>
-                Save
-              </Button>
-            ) : (
-              <Button variant="contained" onClick={this.editChangeHandler}>
-                Edit
-              </Button>
-            )}
           </div>
         </div>
       </>
