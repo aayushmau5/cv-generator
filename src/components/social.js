@@ -13,7 +13,7 @@ const Social = (props) => {
   const socialArray = props.value;
   const output = socialArray.map((obj) => (
     <div key={obj.id}>
-      {obj.website}:{obj.username}
+      <strong>{obj.website}: </strong>{obj.username}
       {props.showEditor ? (
         <FaTrash
           style={{ marginLeft: "5px", cursor: "pointer" }}

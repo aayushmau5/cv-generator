@@ -8,22 +8,21 @@ const Education = (props) => {
 
   const educationArray = props.value.map((obj) => {
     return (
-      <div key={obj.id}>
-        {props.showEditor ? (
-          <FaTrash
-            style={{ marginLeft: "5px", cursor: "pointer" }}
-            size="13px"
-            onClick={() => props.deleteState("education", obj.id)}
-          />
-        ) : null}
-        <br />
-        Year: {obj.year}
-        <br />
-        Place: {obj.place}
-        <br />
-        Title: {obj.title}
-        <br />
-        <br />
+      <div className="education" key={obj.id}>
+        <div className="info">
+          <span className="degree">{obj.title}</span>
+          <span className="place">{obj.place}</span>
+        </div>
+        <div className="year-container">
+          <span className="year">{obj.year}</span>
+          {props.showEditor ? (
+            <FaTrash
+              style={{ marginLeft: "5px", cursor: "pointer" }}
+              size="13px"
+              onClick={() => props.deleteState("education", obj.id)}
+            />
+          ) : null}
+        </div>
       </div>
     );
   });
@@ -51,7 +50,7 @@ const Education = (props) => {
             />
           ) : null}
         </h1>
-        {educationArray}
+        <div className="education-container">{educationArray}</div>
       </div>
     </>
   );

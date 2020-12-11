@@ -3,6 +3,8 @@
     height: 90vh;
     padding: 1rem;
     box-sizing: border-box;
+    font-family: 'Raleway';
+    font-size: 18px;
 }
 
 .Buttons {
@@ -12,21 +14,23 @@
 }
 
 .Container {
-    border: 1px solid rgb(83, 83, 83);
+    border: 3px solid rgb(83, 83, 83);
     margin: auto;
     max-width: 70%;
     display: flex;
 }
 
 .Left_side {
-    background-color: #ccc;
+    background-color: #EDEDED;
     padding: 1rem;
     max-width: 300px;
+    min-width: 230px;
     word-wrap: break-word;
 }
 
 .Right_side {
-    border-left:1px solid black;
+    border-left:2px solid black;
     padding: 1rem;
     word-wrap: break-word;
+    width: 100%;
 }

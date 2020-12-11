@@ -8,7 +8,7 @@ const Skills = (props) => {
 
   const skillsArray = props.value.map((obj) => {
     return (
-      <div key={obj.id}>
+      <div className="skill" key={obj.id}>
         {obj.skill}
         {props.showEditor ? (
           <FaTrash
@@ -44,7 +44,7 @@ const Skills = (props) => {
             />
           ) : null}
         </h1>
-        {skillsArray}
+        <div className="skills">{skillsArray}</div>
       </div>
     </>
   );

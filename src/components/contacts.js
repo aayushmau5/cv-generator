@@ -13,7 +13,7 @@ const Contacts = (props) => {
   const contactsArray = props.value;
   const output = contactsArray.map((obj) => (
     <div key={obj.id}>
-      {obj.place}:{obj.value}{" "}
+      <strong>{obj.place}: </strong>{obj.value}{" "}
       {props.showEditor ? (
         <FaTrash
           style={{ marginLeft: "5px", cursor: "pointer" }}

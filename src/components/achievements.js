@@ -8,24 +8,22 @@ const Achievements = (props) => {
 
   const achievementsArray = props.value.map((obj) => {
     return (
-      <div key={obj.id}>
-        {props.showEditor ? (
-          <FaTrash
-            style={{ marginLeft: "5px", cursor: "pointer" }}
-            size="13px"
-            onClick={() => props.deleteState("achievements", obj.id)}
-          />
-        ) : null}
-        <br />
-        Year: {obj.year}
-        <br />
-        Company: {obj.company}
-        <br />
-        Position: {obj.position}
-        <br />
-        Summary: {obj.summary}
-        <br />
-        <br />
+      <div className="achievement" key={obj.id}>
+        <div className="info">
+          <span className="position">{obj.position}</span>
+          <span className="company">{obj.company}</span>
+          <span className="summary">{obj.summary}</span>
+        </div>
+        <div className="year-container">
+          <span className="year">{obj.year}</span>
+          {props.showEditor ? (
+            <FaTrash
+              style={{ marginLeft: "5px", cursor: "pointer" }}
+              size="13px"
+              onClick={() => props.deleteState("achievements", obj.id)}
+            />
+          ) : null}
+        </div>
       </div>
     );
   });
@@ -53,7 +51,7 @@ const Achievements = (props) => {
             />
           ) : null}
         </h1>
-        {achievementsArray}
+        <div className="achievements">{achievementsArray}</div>
       </div>
     </>
   );

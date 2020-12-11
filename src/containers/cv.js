@@ -55,7 +55,8 @@ class CV extends Component {
         interest: "Second Interest",
       },
     ],
-    about: "Your about",
+    about:
+      "lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet lorem ipusm dolor sit amet",
     skills: [
       {
         id: 0,
