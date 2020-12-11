@@ -4,6 +4,8 @@ Website to view and edit CV.
 
 #### More features may come soon
 
+- [ ] Make the website mobile responsive(right now it's pretty bad on mobile :( )
+
 - [ ] Add functionality to generate a downloadable PDF of the CV
 
 - [ ] Some more fields
