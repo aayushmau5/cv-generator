@@ -6,10 +6,10 @@ const Header = () => {
   return (
     <header className={styles.Header}>
       <h1>CV Generator</h1>
-      <p>
+      {/* <p>
         A CV Generator made using react, enter the required fields and download
         a PDF of your CV.
-      </p>
+      </p> */}
       <Button
         variant="contained"
         href="https://github.com/aayushmau5/cv-generator"
