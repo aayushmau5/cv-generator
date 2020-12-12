@@ -1,6 +1,10 @@
 import { Component } from "react";
 import { Button } from "@material-ui/core";
 import { nanoid } from "nanoid";
+import axios from "axios";
+import { saveAs } from "file-saver";
+import html2canvas from 'html2canvas';
+import jspdf from 'jspdf';
 
 import Contacts from "../components/contacts";
 import Interests from "../components/interests";
@@ -204,6 +208,25 @@ class CV extends Component {
     });
   };
 
+  getPdf = () => {
+    axios
+      .post("http://localhost:5000/generate-pdf", this.state)
+      .then((result) => {
+        console.log(result);
+        return axios.get("http://localhost:5000/get-pdf", {
+          responseType: "blob",
+        });
+      })
+      .then((file) => {
+        const pdf = new Blob([file.data], { type: "application/pdf" });
+
+        saveAs(pdf, "cv.pdf");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <>
@@ -214,9 +237,14 @@ class CV extends Component {
                 Save
               </Button>
             ) : (
-              <Button variant="contained" onClick={this.editChangeHandler}>
-                Edit
-              </Button>
+              <>
+                <Button variant="contained" onClick={this.editChangeHandler}>
+                  Edit
+                </Button>
+                <Button variant="contained" style={{marginLeft: "10px"}} onClick={this.getPdf}>
+                  Download
+                </Button>
+              </>
             )}
           </div>
           <div className={styles.Container}>
