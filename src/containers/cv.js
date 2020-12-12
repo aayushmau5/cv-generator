@@ -208,10 +208,10 @@ class CV extends Component {
 
   getPdf = () => {
     axios
-      .post("http://localhost:5000/generate-pdf", this.state)
+      .post("https://glacial-taiga-67378.herokuapp.com/generate-pdf", this.state)
       .then((result) => {
         console.log(result);
-        return axios.get("http://localhost:5000/get-pdf", {
+        return axios.get("https://glacial-taiga-67378.herokuapp.com/get-pdf", {
           responseType: "blob",
         });
       })
