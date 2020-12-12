@@ -3,8 +3,6 @@ import { Button } from "@material-ui/core";
 import { nanoid } from "nanoid";
 import axios from "axios";
 import { saveAs } from "file-saver";
-import html2canvas from 'html2canvas';
-import jspdf from 'jspdf';
 
 import Contacts from "../components/contacts";
 import Interests from "../components/interests";
